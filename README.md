@@ -1,12 +1,12 @@
 # rent-estimator-ml
 
-Estima aluguel mensal em BRL usando área, quartos, localização e características do imóvel em um conjunto sintético.
+Estimates monthly rent in Brazilian reais (BRL) from property size, bedrooms, location, and other features.
 
-## Dados
+## Data
 
-O pipeline gera dados sintéticos determinísticos localmente, identificados como sintéticos em `pipeline.py`. Nenhum dado privado ou download externo é necessário. A divisão e a semente de avaliação são descritas junto às métricas abaixo.
+Deterministic synthetic property data is generated locally in `pipeline.py`. No private data or external download is required.
 
-## Instalação e execução
+## Install and run
 
 ```bash
 python -m venv .venv
@@ -18,8 +18,10 @@ python cli.py train --model model.joblib
 python cli.py predict --model model.joblib
 ```
 
-## Métricas obtidas
+## Evaluation results
 
-Seed 42: holdout aleatório de 550 imóveis — MAE **R$ 517,51**, RMSE **R$ 648,05**, R² **0,9175**. O gerador usa relações artificiais entre cidade, área e aluguel; os erros não são estimativas para o mercado imobiliário brasileiro.
+With seed 42, a random holdout of 550 properties had an MAE of BRL 517.51, an RMSE of BRL 648.05, and an R² of 0.9175. The generator uses artificial relationships between city, floor area, and rent; these errors do not describe the Brazilian rental market.
 
-Limitação: dados e regras de geração simplificados; antes de uso real, substitua-os por dados com licença e proveniência adequadas e valide fora da amostra.
+## Limitations
+
+The synthetic property data is deliberately simple. Real estimates would require appropriately sourced listings, careful handling of location and listing dates, and validation on a separate market sample.
